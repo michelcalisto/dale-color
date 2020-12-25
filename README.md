@@ -17,6 +17,8 @@ var DaleColor = require('dale-color');
 ```
 
 - [Validaciones](https://gist.github.com/laloinsane/a2d06c58a741744c33bc740ace3b237f)
+- [Brillo](https://gist.github.com/laloinsane/22bdade84b3cfe177705e706660e7f6c)
+- [Armonías](https://gist.github.com/laloinsane/ed122ba501877bd7759023d9ee34c560)
 
 ---
 
