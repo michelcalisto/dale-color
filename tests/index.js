@@ -1,12 +1,12 @@
 const tests = require('ava');
 const DaleColor = require('../src/dale-color.js');
-const mySquare = new DaleColor();
+const palette = new DaleColor();
 
 tests("Tests: Validates",t => {
-    // t.is(mySquare.area(), 130);
-    t.is(mySquare.isHex("#64C800"), true);
-    t.is(mySquare.isPercentage(0), true);
-    t.is(mySquare.isDark("#c7c7c7"), false);
+    t.is(palette.isHex("#64C800"), true);
+    t.is(palette.isPercentage(0), true);
+    t.is(palette.isDark("#808080"), true);
+    t.is(palette.isLight("#808080"), false);
 
     // t.is(daleColor.isHex("#64C800F"), false);
     // t.is(daleColor.isHex("#64C80"), false);
