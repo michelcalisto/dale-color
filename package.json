@@ -1,7 +1,7 @@
 {
   "name": "dale-color",
-  "version": "1.0.0",
-  "description": "Libreria javascript para generar combinaciónes de colores.",
+  "version": "1.0.1",
+  "description": "Libreria javascript para la alteración del color.",
   "main": "src/dale-color.js",
   "scripts": {
     "test": "ava tests/*.js --verbose"

@@ -1,6 +1,6 @@
 # Dale Color
 
-Libreria javascript para generar combinaciones de colores.
+Libreria javascript para la alteración del color.
 
 ![Node](https://img.shields.io/badge/NodeJS-v12.20.0-blue)
 ![NPM](https://img.shields.io/badge/NPM-v6.14.8-blue)
@@ -13,7 +13,8 @@ Libreria javascript para generar combinaciones de colores.
 ## Uso
 
 ```js
-var DaleColor = require('dale-color');
+const DaleColor = require('dale-color');
+const palette = new DaleColor();
 ```
 
 - [Validaciones](https://gist.github.com/laloinsane/a2d06c58a741744c33bc740ace3b237f)
