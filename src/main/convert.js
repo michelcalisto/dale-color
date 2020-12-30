@@ -1,8 +1,8 @@
-function convertToDec(number){
+function toDec(number){
     return parseInt(number, 16)
 }
 
-function convertToHex(number){
+function toHex(number){
     var hex = number.toString(16)
     if(hex < 10){
         return '0' + hex
@@ -11,6 +11,6 @@ function convertToHex(number){
 }
 
 module.exports = {
-    convertToDec,
-    convertToHex
+    toDec,
+    toHex
 }

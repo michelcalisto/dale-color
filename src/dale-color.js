@@ -1,4 +1,4 @@
-const {convertToDec, convertToHex} = require('./main/convert.js');
+const {toDec, toHex} = require('./main/convert.js');
 const {isHex, isPercentage} = require('./main/validate.js');
 const {add, subtract} = require('./main/brightness.js');
 
@@ -22,9 +22,9 @@ module.exports = class DaleColor {
   */
   isDark(color) {
     if(isHex(color) == true) {
-      var r = convertToDec(color.substring(1,3));
-      var g = convertToDec(color.substring(3,5));
-      var b = convertToDec(color.substring(5,7));
+      var r = toDec(color.substring(1,3));
+      var g = toDec(color.substring(3,5));
+      var b = toDec(color.substring(5,7));
 
       /* Negro o Blanco */
       if((r == g && g == b) && (r <= this.half)) {
@@ -93,9 +93,9 @@ module.exports = class DaleColor {
   */
   isLight(color) {
     if(isHex(color) == true){
-      var r = convertToDec(color.substring(1,3));
-      var g = convertToDec(color.substring(3,5));
-      var b = convertToDec(color.substring(5,7));
+      var r = toDec(color.substring(1,3));
+      var g = toDec(color.substring(3,5));
+      var b = toDec(color.substring(5,7));
 
       /* Negro o Blanco */
       if((r == g && g == b) && (r > this.half)) {
@@ -156,100 +156,100 @@ module.exports = class DaleColor {
   /* Harmonies - Opuesto */
   opposite(color) {
     if(isHex(color) == true) {
-      var r = convertToDec(color.substring(1,3));
-      var g = convertToDec(color.substring(3,5));
-      var b = convertToDec(color.substring(5,7));
+      var r = toDec(color.substring(1,3));
+      var g = toDec(color.substring(3,5));
+      var b = toDec(color.substring(5,7));
 
       /* Negro o Blanco */
       if(r == g && g == b) {
           var ro = 255 - r;
           var go = 255 - g;
           var bo = 255 - b;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Primarios - Rojo */
       else if(r > b && b == g) {
           var ro = g;
           var go = r;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);            
       }
       /* Primarios - Verde */
       else if(g > r && r == b) {
           var ro = g;
           var go = b;
           var bo = g;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);            
       }
       /* Primarios - Azul */
       else if(b > g && g == r) {
           var ro = b;
           var go = b;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);            
       }
       /* Secundarios - Amarillo */
       else if(g == r && g > b) {
           var ro = b;
           var go = b;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Secundarios - Celeste */
       else if(b == g && b > r) {
           var ro = g;
           var go = r;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Secundarios - Rosado */
       else if(r == b && r > g) {
           var ro = g;
           var go = r;
           var bo = g;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Rojo Izq */
       else if((r > b && r > g) && (g > b)) {
           var ro = b;
           var go = g;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Rojo Der */
       else if((r > b && r > g) && (g < b)) {
           var ro = g;
           var go = r;
           var bo = b;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Azul Izq */
       else if((b > g && b > r) && (r > g)) {
           var ro = r;
           var go = b;
           var bo = g;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Azul Der */
       else if((b > g && b > r) && (r < g)) {
           var ro = b;
           var go = g;
           var bo = r;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Verde Izq */
       else if((g > r && g > b) && (b > r)) {
           var ro = g;
           var go = r;
           var bo = b;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
       /* Terciarios - Verde Der */
       else if((g > r && g > b) && (b < r)) {
           var ro = r;
           var go = b;
           var bo = g;
-          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+          return '#' + toHex(ro) + toHex(go) + toHex(bo);
       }
     }
     return false;
@@ -260,15 +260,15 @@ module.exports = class DaleColor {
     if(isHex(color) == true && isPercentage(percentage) == true) {
       var p = percentage.substring(0, percentage.length - 1);
 
-      var r = convertToDec(color.substring(1,3));
-      var g = convertToDec(color.substring(3,5));
-      var b = convertToDec(color.substring(5,7));
+      var r = toDec(color.substring(1,3));
+      var g = toDec(color.substring(3,5));
+      var b = toDec(color.substring(5,7));
       // porcentaje por color
       var rp = Math.round((p * (255 - r)) / 100);
       var gp = Math.round((p * (255 - g)) / 100);
       var bp = Math.round((p * (255 - b)) / 100);
 
-      return '#' + convertToHex(add(r, rp)) + convertToHex(add(g, gp)) + convertToHex(add(b, bp));
+      return '#' + toHex(add(r, rp)) + toHex(add(g, gp)) + toHex(add(b, bp));
     }
     return false;
   }
@@ -277,15 +277,15 @@ module.exports = class DaleColor {
     if(isHex(color) == true && isPercentage(percentage) == true) {
       var p = percentage.substring(0, percentage.length - 1);
       
-      var r = convertToDec(color.substring(1,3));
-      var g = convertToDec(color.substring(3,5));
-      var b = convertToDec(color.substring(5,7));
+      var r = toDec(color.substring(1,3));
+      var g = toDec(color.substring(3,5));
+      var b = toDec(color.substring(5,7));
       // porcentaje por color
       var rp = Math.round((p * r) / 100);
       var gp = Math.round((p * g) / 100);
       var bp = Math.round((p * b) / 100);
       
-      return '#' + convertToHex(subtract(r, rp)) + convertToHex(subtract(g, gp)) + convertToHex(subtract(b, bp));
+      return '#' + toHex(subtract(r, rp)) + toHex(subtract(g, gp)) + toHex(subtract(b, bp));
     }
     return false;
   }
