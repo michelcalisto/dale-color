@@ -1,7 +1,7 @@
 /* Validación de color hexadecimal */
 function isHex(color) {
     var regexp = /^#[0-9a-fA-F]{6}$/;
-    if(regexp.test(color)){
+    if(regexp.test(color)) {
         return true;
     }
     return false
@@ -9,11 +9,9 @@ function isHex(color) {
 
 /* Validación de porcentaje */
 function isPercentage(percentage) {
-    var regexp = /^[0-9]+$/;
-    if(regexp.test(percentage)){
-        if(percentage >= 0 && percentage <= 100){
-            return true
-        }
+    var regexp = /^([0-9]{1,2}|100)%$/;
+    if(regexp.test(percentage)) {
+        return true;
     }
     return false
 }
