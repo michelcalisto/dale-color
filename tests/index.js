@@ -70,103 +70,44 @@ tests("Tests: Validate Dark",t => {
 });
 
 tests("Tests: Validate Light",t => {
+    /* Negro y Blanco */
     t.is(palette.isLight("#808080"), false);
+    t.is(palette.isLight("#000000"), false);
+    t.is(palette.isLight("#ffffff"), true);
+    t.is(palette.isLight("#999999"), true);
 
+    /* Primarios */
+    t.is(palette.isLight("#ff0000"), false);
+    t.is(palette.isLight("#ff9999"), true);
+    t.is(palette.isLight("#00ff00"), false);
+    t.is(palette.isLight("#99ff99"), true);
+    t.is(palette.isLight("#0000ff"), false);
+    t.is(palette.isLight("#9999ff"), true);
 
+    /* Secundarios */
+    t.is(palette.isLight("#ffff00"), false);
+    t.is(palette.isLight("#ffff99"), true);
+    t.is(palette.isLight("#ff00ff"), false);
+    t.is(palette.isLight("#ff99ff"), true);
+    t.is(palette.isLight("#00ffff"), false);
+    t.is(palette.isLight("#99ffff"), true);
+
+    /* Tersarios */
+    t.is(palette.isLight("#ff8000"), false);
+    t.is(palette.isLight("#ffcd9b"), true);
+    t.is(palette.isLight("#ff0080"), false);
+    t.is(palette.isLight("#ff9bcd"), true);
+
+    t.is(palette.isLight("#8000ff"), false);
+    t.is(palette.isLight("#cd9bff"), true);
+    t.is(palette.isLight("#0080ff"), false);
+    t.is(palette.isLight("#9bcdff"), true);
+
+    t.is(palette.isLight("#00ff80"), false);
+    t.is(palette.isLight("#9bffcd"), true);
+    t.is(palette.isLight("#80ff00"), false);
+    t.is(palette.isLight("#cdff9b"), true);
 });
-
-// //     /*
-// //     * Negro y Blanco
-// //     */
-// //     t.same(daleColor.validaciones.isOscuro("#000000", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#ffffff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#999999", 200), true, 'Debería ser: true');
-
-// //     /*
-// //     * Primarios
-// //     */
-// //     t.same(daleColor.validaciones.isOscuro("#ff0000", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#960000", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#00ff00", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#009600", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#0000ff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#000096", 200), true, 'Debería ser: true');
-
-// //     /*
-// //     * Secundarios
-// //     */
-// //     t.same(daleColor.validaciones.isOscuro("#ffff00", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#969600", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#ff00ff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#960096", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#00ffff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#009696", 200), true, 'Debería ser: true');
-
-// //     /*
-// //     * Tersarios
-// //     */
-// //     t.same(daleColor.validaciones.isOscuro("#ff8000", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#96503c", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#ff0080", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#963c50", 200), true, 'Debería ser: true');
-
-// //     t.same(daleColor.validaciones.isOscuro("#8000ff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#503c96", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#0080ff", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#3c5096", 200), true, 'Debería ser: true');
-
-// //     t.same(daleColor.validaciones.isOscuro("#00ff80", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#3c9650", 200), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isOscuro("#80ff00", 200), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isOscuro("#50963c", 200), true, 'Debería ser: true');
-
-// //     /*
-// //     * Negro y Blanco
-// //     */
-// //     t.same(daleColor.validaciones.isClaro("#000000", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ffffff", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#999999", 100), true, 'Debería ser: true');
-
-// //     /*
-// //     * Primarios
-// //     */
-// //     t.same(daleColor.validaciones.isClaro("#ff0000", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ff9999", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#00ff00", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#99ff99", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#0000ff", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#9999ff", 100), true, 'Debería ser: true');
-  
-// //     /*
-// //     * Secundarios
-// //     */
-// //     t.same(daleColor.validaciones.isClaro("#ffff00", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ffff99", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#ff00ff", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ff99ff", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#00ffff", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#99ffff", 100), true, 'Debería ser: true');
-
-// //     /*
-// //     * Tersarios
-// //     */
-// //     t.same(daleColor.validaciones.isClaro("#ff8000", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ffcd9b", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#ff0080", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#ff9bcd", 100), true, 'Debería ser: true');
-
-// //     t.same(daleColor.validaciones.isClaro("#8000ff", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#cd9bff", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#0080ff", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#9bcdff", 100), true, 'Debería ser: true');
-
-// //     t.same(daleColor.validaciones.isClaro("#00ff80", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#9bffcd", 100), true, 'Debería ser: true');
-// //     t.same(daleColor.validaciones.isClaro("#80ff00", 100), false, 'Debería ser: false');
-// //     t.same(daleColor.validaciones.isClaro("#cdff9b", 100), true, 'Debería ser: true');
-
-//     t.end();
-// })
 
 // // tests('Test de brillo:', (t) => {
 // //     t.same(daleColor.brillo.aclarar("#000000",0), "#000000", 'Debería ser: #000000');
