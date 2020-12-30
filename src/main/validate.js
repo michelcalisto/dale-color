@@ -1,14 +1,8 @@
-const {convertToDec} = require('./convert.js');
-
 /* Validación de color hexadecimal */
 function isHex(color) {
-    var regexp = /^[0-9a-fA-F]+$/;
-    if(color.length == 7){
-        if(color.substring(0,1) == "#"){
-            if(regexp.test(color.substring(1,6))){
-                return true
-            }
-        }
+    var regexp = /^#[0-9a-fA-F]{6}$/;
+    if(regexp.test(color)){
+        return true;
     }
     return false
 }

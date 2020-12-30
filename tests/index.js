@@ -3,7 +3,7 @@ const DaleColor = require('../src/dale-color.js');
 const palette = new DaleColor();
 
 tests("Tests: Validates",t => {
-    t.is(palette.isHex("#64C800"), true);
+    t.is(palette.isHex("#64Y800"), false);
     t.is(palette.isPercentage(0), true);
     t.is(palette.isDark("#808080"), true);
     t.is(palette.isLight("#808080"), false);
