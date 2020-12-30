@@ -2,27 +2,6 @@ const tests = require('ava');
 const DaleColor = require('../src/dale-color.js');
 const palette = new DaleColor(128);
 
-tests("Tests: Validate Hex",t => {
-    t.is(palette.isHex("#64F800"), true);
-    t.is(palette.isHex("#64C800F"), false);
-    t.is(palette.isHex("#64C80"), false);
-    t.is(palette.isHex("164C800"), false);
-    t.is(palette.isHex("#64CX00"), false);
-});
-
-tests("Tests: Validate Percentage",t => {
-    t.is(palette.isPercentage("0%"), true);
-    t.is(palette.isPercentage(100), false);
-    t.is(palette.isPercentage(-1), false);
-    t.is(palette.isPercentage(101), false);
-    t.is(palette.isPercentage("sol"), false);
-    t.is(palette.isPercentage("50%"), true);
-    t.is(palette.isPercentage("100%"), true);
-    t.is(palette.isPercentage("101%"), false);
-    t.is(palette.isPercentage("-1%"), false);
-    t.is(palette.isPercentage("101"), false);
-});
-
 tests("Tests: Validate Dark",t => {
     /* Negro y Blanco */
     t.is(palette.isDark("#000000"), true);

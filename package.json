@@ -1,6 +1,6 @@
 {
   "name": "dale-color",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Libreria javascript para la alteración del color.",
   "main": "src/dale-color.js",
   "scripts": {

@@ -2,12 +2,8 @@ const {toDec, toHex} = require('./main/convert.js');
 const {isHex, isPercentage} = require('./main/validate.js');
 const {add, subtract} = require('./main/brightness.js');
 
-module.exports = class DaleColor {
-  half = 128;
-  isHex = isHex;
-  isPercentage = isPercentage;
-
-  constructor(half = this.half) {
+module.exports = class DaleColor{
+  constructor(half = 128) {
     this.half = half;
   }
 
