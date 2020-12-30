@@ -1,4 +1,4 @@
-const {convertToDec} = require('./main/convert.js');
+const {convertToDec, convertToHex} = require('./main/convert.js');
 const {isHex, isPercentage} = require('./main/validate.js');
 
 module.exports = class DaleColor {
@@ -92,9 +92,9 @@ module.exports = class DaleColor {
   */
   isLight(color) {
     if(isHex(color) == true){
-      var r = convertToDec(color.substring(1,3))
-      var g = convertToDec(color.substring(3,5))
-      var b = convertToDec(color.substring(5,7))
+      var r = convertToDec(color.substring(1,3));
+      var g = convertToDec(color.substring(3,5));
+      var b = convertToDec(color.substring(5,7));
 
       /* Negro o Blanco */
       if((r == g && g == b) && (r > this.half)) {
@@ -147,6 +147,108 @@ module.exports = class DaleColor {
       /* Terciarios - Verde Der */
       else if((g > r && g > b) && ((b < r) && (b > this.half))) {
         return true;
+      }
+    }
+    return false;
+  }
+
+  /* Harmonies - Opuesto */
+  opposite(color) {
+    if(isHex(color) == true) {
+      var r = convertToDec(color.substring(1,3));
+      var g = convertToDec(color.substring(3,5));
+      var b = convertToDec(color.substring(5,7));
+
+      /* Negro o Blanco */
+      if(r == g && g == b) {
+          var ro = 255 - r;
+          var go = 255 - g;
+          var bo = 255 - b;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Primarios - Rojo */
+      else if(r > b && b == g) {
+          var ro = g;
+          var go = r;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+      }
+      /* Primarios - Verde */
+      else if(g > r && r == b) {
+          var ro = g;
+          var go = b;
+          var bo = g;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+      }
+      /* Primarios - Azul */
+      else if(b > g && g == r) {
+          var ro = b;
+          var go = b;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);            
+      }
+      /* Secundarios - Amarillo */
+      else if(g == r && g > b) {
+          var ro = b;
+          var go = b;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Secundarios - Celeste */
+      else if(b == g && b > r) {
+          var ro = g;
+          var go = r;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Secundarios - Rosado */
+      else if(r == b && r > g) {
+          var ro = g;
+          var go = r;
+          var bo = g;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Rojo Izq */
+      else if((r > b && r > g) && (g > b)) {
+          var ro = b;
+          var go = g;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Rojo Der */
+      else if((r > b && r > g) && (g < b)) {
+          var ro = g;
+          var go = r;
+          var bo = b;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Azul Izq */
+      else if((b > g && b > r) && (r > g)) {
+          var ro = r;
+          var go = b;
+          var bo = g;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Azul Der */
+      else if((b > g && b > r) && (r < g)) {
+          var ro = b;
+          var go = g;
+          var bo = r;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Verde Izq */
+      else if((g > r && g > b) && (b > r)) {
+          var ro = g;
+          var go = r;
+          var bo = b;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
+      }
+      /* Terciarios - Verde Der */
+      else if((g > r && g > b) && (b < r)){
+          var ro = r;
+          var go = b;
+          var bo = g;
+          return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
       }
     }
     return false;

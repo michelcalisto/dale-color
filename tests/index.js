@@ -109,6 +109,51 @@ tests("Tests: Validate Light",t => {
     t.is(palette.isLight("#cdff9b"), true);
 });
 
+tests("Tests: Harmonies Opposite",t => {
+    t.is(palette.opposite("#000000g"), false);
+
+    /* Negro y Blanco */
+    t.is(palette.opposite("#000000"), "#ffffff");
+    t.is(palette.opposite("#ffffff"), "#000000");
+    t.is(palette.opposite("#010101"), "#fefefe");
+    t.is(palette.opposite("#fafafa"), "#050505");
+    t.is(palette.opposite("#C8C8C8"), "#373737");
+    t.is(palette.opposite("#373737"), "#c8c8c8");
+    t.is(palette.opposite("#646464"), "#9b9b9b");
+
+    /* Primarios */
+    t.is(palette.opposite("#ff0000"), "#00ffff");
+    t.is(palette.opposite("#ff6464"), "#64ffff");
+    t.is(palette.opposite("#00ff00"), "#ff00ff");
+    t.is(palette.opposite("#64ff64"), "#ff64ff");
+    t.is(palette.opposite("#0000ff"), "#ffff00");
+    t.is(palette.opposite("#6464ff"), "#ffff64");
+
+    /* Secundarios */
+    t.is(palette.opposite("#ffff00"), "#0000ff");
+    t.is(palette.opposite("#ffff64"), "#6464ff");
+    t.is(palette.opposite("#ff00ff"), "#00ff00");
+    t.is(palette.opposite("#ff64ff"), "#64ff64");
+    t.is(palette.opposite("#00ffff"), "#ff0000");
+    t.is(palette.opposite("#64ffff"), "#ff6464");
+
+    /* Tersarios */
+    t.is(palette.opposite("#ff8000"), "#0080ff");
+    t.is(palette.opposite("#ff8064"), "#6480ff");
+    t.is(palette.opposite("#ff0080"), "#00ff80");
+    t.is(palette.opposite("#ff6480"), "#64ff80");
+
+    t.is(palette.opposite("#8000ff"), "#80ff00");
+    t.is(palette.opposite("#8064ff"), "#80ff64");
+    t.is(palette.opposite("#0080ff"), "#ff8000");
+    t.is(palette.opposite("#6480ff"), "#ff8064");
+
+    t.is(palette.opposite("#00ff80"), "#ff0080");
+    t.is(palette.opposite("#64ff80"), "#ff6480");
+    t.is(palette.opposite("#80ff00"), "#8000ff");
+    t.is(palette.opposite("#80ff64"), "#8064ff");
+});
+
 // // tests('Test de brillo:', (t) => {
 // //     t.same(daleColor.brillo.aclarar("#000000",0), "#000000", 'Debería ser: #000000');
 // //     t.same(daleColor.brillo.aclarar("#000000",50), "#808080", 'Debería ser: #808080');
@@ -123,78 +168,6 @@ tests("Tests: Validate Light",t => {
 
 // //     t.same(daleColor.brillo.oscurecer("#ffffff",25), "#bfbfbf", 'Debería ser: #bfbfbf');
 // //     t.same(daleColor.brillo.oscurecer("#ffffff",75), "#404040", 'Debería ser: #404040');
-
-// //     t.end();
-// // })
-
-// // tests('Test de Armonias Opuestas:', (t) => {
-// //     t.same(daleColor.armonias.opuesto("#000000g"), false, 'Debería ser: false');
-// //     /*
-// //     * Negro y Blanco
-// //     */
-// //     t.same(daleColor.armonias.opuesto("#000000"), "#ffffff", 'Debería ser: #ffffff');
-// //     t.same(daleColor.armonias.opuesto("#ffffff"), "#000000", 'Debería ser: #000000');
-// //     t.same(daleColor.armonias.opuesto("#010101"), "#fefefe", 'Debería ser: #fefefe');
-// //     t.same(daleColor.armonias.opuesto("#fafafa"), "#050505", 'Debería ser: #050505');
-// //     t.same(daleColor.armonias.opuesto("#C8C8C8"), "#373737", 'Debería ser: #373737');
-// //     t.same(daleColor.armonias.opuesto("#373737"), "#c8c8c8", 'Debería ser: #c8c8c8');
-// //     t.same(daleColor.armonias.opuesto("#646464"), "#9b9b9b", 'Debería ser: #9b9b9b');
-
-// //     /*
-// //     * Primarios
-// //     */
-// //     t.same(daleColor.armonias.opuesto("#ff0000"), "#00ffff", 'Debería ser: #00ffff');
-// //     t.same(daleColor.armonias.opuesto("#ff6464"), "#64ffff", 'Debería ser: #64ffff');
-// //     t.same(daleColor.armonias.opuesto("#00ff00"), "#ff00ff", 'Debería ser: #ff00ff');
-// //     t.same(daleColor.armonias.opuesto("#64ff64"), "#ff64ff", 'Debería ser: #ff64ff');
-// //     t.same(daleColor.armonias.opuesto("#0000ff"), "#ffff00", 'Debería ser: #ffff00');
-// //     t.same(daleColor.armonias.opuesto("#6464ff"), "#ffff64", 'Debería ser: #ffff64');
-
-// //     /*
-// //     * Secundarios
-// //     */
-// //     t.same(daleColor.armonias.opuesto("#ffff00"), "#0000ff", 'Debería ser: #0000ff');
-// //     t.same(daleColor.armonias.opuesto("#ffff64"), "#6464ff", 'Debería ser: #6464ff');
-// //     t.same(daleColor.armonias.opuesto("#ff00ff"), "#00ff00", 'Debería ser: #00ff00');
-// //     t.same(daleColor.armonias.opuesto("#ff64ff"), "#64ff64", 'Debería ser: #64ff64');
-// //     t.same(daleColor.armonias.opuesto("#00ffff"), "#ff0000", 'Debería ser: #00ffff');
-// //     t.same(daleColor.armonias.opuesto("#64ffff"), "#ff6464", 'Debería ser: #64ffff');
-
-// //     /*
-// //     * Tersarios
-// //     */
-// //     t.same(daleColor.armonias.opuesto("#ff8000"), "#0080ff", 'Debería ser: #0080ff');
-// //     t.same(daleColor.armonias.opuesto("#ff8064"), "#6480ff", 'Debería ser: #6480ff');
-// //     t.same(daleColor.armonias.opuesto("#ff0080"), "#00ff80", 'Debería ser: #00ff80');
-// //     t.same(daleColor.armonias.opuesto("#ff6480"), "#64ff80", 'Debería ser: #64ff80');
-
-// //     t.same(daleColor.armonias.opuesto("#8000ff"), "#80ff00", 'Debería ser: #80ff00');
-// //     t.same(daleColor.armonias.opuesto("#8064ff"), "#80ff64", 'Debería ser: #80ff64');
-// //     t.same(daleColor.armonias.opuesto("#0080ff"), "#ff8000", 'Debería ser: #ff8000');
-// //     t.same(daleColor.armonias.opuesto("#6480ff"), "#ff8064", 'Debería ser: #ff8064');
-
-// //     t.same(daleColor.armonias.opuesto("#00ff80"), "#ff0080", 'Debería ser: #ff0080');
-// //     t.same(daleColor.armonias.opuesto("#64ff80"), "#ff6480", 'Debería ser: #ff6480');
-// //     t.same(daleColor.armonias.opuesto("#80ff00"), "#8000ff", 'Debería ser: #8000ff');
-// //     t.same(daleColor.armonias.opuesto("#80ff64"), "#8064ff", 'Debería ser: #8064ff');
-
-// //     t.end();
-// // })
-
-// // tests('Test de brillo:', (t) => {
-//     // t.same(daleColor.aclarar("#000000",0), "#000000", 'Debería ser: #000000');
-//     // t.same(daleColor.aclarar("#000000",50), "#808080", 'Debería ser: #808080');
-//     // t.same(daleColor.aclarar("#000000",100), "#ffffff", 'Debería ser: #ffffff');
-
-//     // t.same(daleColor.aclarar("#66ff66",25), "#a6ffa6", 'Debería ser: #a6ffa6');
-//     // t.same(daleColor.aclarar("#66ff66",75), "#ffffff", 'Debería ser: #ffffff');
-
-//     // t.same(daleColor.oscurecer("#ffffff",0), "#ffffff", 'Debería ser: #ffffff');
-//     // t.same(daleColor.oscurecer("#ffffff",50), "#7f7f7f", 'Debería ser: #7f7f7f');
-//     // t.same(daleColor.oscurecer("#ffffff",100), "#000000", 'Debería ser: #000000');
-
-//     // t.same(daleColor.oscurecer("#ffffff",25), "#bfbfbf", 'Debería ser: #bfbfbf');
-//     // t.same(daleColor.oscurecer("#ffffff",75), "#404040", 'Debería ser: #404040');
 
 // //     t.end();
 // // })
