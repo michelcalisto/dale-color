@@ -3,21 +3,26 @@ const DaleColor = require('../src/dale-color.js');
 const palette = new DaleColor();
 
 tests("Tests: Validates",t => {
-    t.is(palette.isHex("#64Y800"), false);
-    t.is(palette.isPercentage("1%"), true);
+    t.is(palette.isHex("#64F800"), true);
+    t.is(palette.isHex("#64C800F"), false);
+    t.is(palette.isHex("#64C80"), false);
+    t.is(palette.isHex("164C800"), false);
+    t.is(palette.isHex("#64CX00"), false);
+
+    t.is(palette.isPercentage("0%"), true);
+    t.is(palette.isPercentage(100), false);
+    t.is(palette.isPercentage(-1), false);
+    t.is(palette.isPercentage(101), false);
+    t.is(palette.isPercentage("sol"), false);
+    t.is(palette.isPercentage("50%"), true);
+    t.is(palette.isPercentage("100%"), true);
+    t.is(palette.isPercentage("101%"), false);
+    t.is(palette.isPercentage("-1%"), false);
+    t.is(palette.isPercentage("101"), false);
+
     t.is(palette.isDark("#808080"), true);
     t.is(palette.isLight("#808080"), false);
 
-    // t.is(daleColor.isHex("#64C800F"), false);
-    // t.is(daleColor.isHex("#64C80"), false);
-    // t.is(daleColor.isHex("164C800"), false);
-    // t.is(daleColor.isHex("#64CX00"), false);
-
-    // t.is(daleColor.isPercentage(0), true);
-    // t.is(daleColor.isPercentage(100), true);
-    // t.is(daleColor.isPercentage(-1), false);
-    // t.is(daleColor.isPercentage(101), false);
-    // t.is(daleColor.isPercentage("sol"), false);
     
     // /*
     // * Negro y Blanco
