@@ -154,20 +154,20 @@ tests("Tests: Harmonies Opposite",t => {
     t.is(palette.opposite("#80ff64"), "#8064ff");
 });
 
-// // tests('Test de brillo:', (t) => {
-// //     t.same(daleColor.brillo.aclarar("#000000",0), "#000000", 'Debería ser: #000000');
-// //     t.same(daleColor.brillo.aclarar("#000000",50), "#808080", 'Debería ser: #808080');
-// //     t.same(daleColor.brillo.aclarar("#000000",100), "#ffffff", 'Debería ser: #ffffff');
 
-// //     t.same(daleColor.brillo.aclarar("#66ff66",25), "#a6ffa6", 'Debería ser: #a6ffa6');
-// //     t.same(daleColor.brillo.aclarar("#66ff66",75), "#ffffff", 'Debería ser: #ffffff');
+tests("Tests: Brightness",t => {
+    t.is(palette.darken("#000000", 0), false);
+    t.is(palette.darken("#000000", "0%"), "#000000");
+    t.is(palette.darken("#000000", "50%"), "#808080");
+    t.is(palette.darken("#000000", "100%"), "#ffffff");
 
-// //     t.same(daleColor.brillo.oscurecer("#ffffff",0), "#ffffff", 'Debería ser: #ffffff');
-// //     t.same(daleColor.brillo.oscurecer("#ffffff",50), "#7f7f7f", 'Debería ser: #7f7f7f');
-// //     t.same(daleColor.brillo.oscurecer("#ffffff",100), "#000000", 'Debería ser: #000000');
+    t.is(palette.darken("#66ff66", "25%"), "#8cff8c");
+    t.is(palette.darken("#66ff66", "75%"), "#d9ffd9");
 
-// //     t.same(daleColor.brillo.oscurecer("#ffffff",25), "#bfbfbf", 'Debería ser: #bfbfbf');
-// //     t.same(daleColor.brillo.oscurecer("#ffffff",75), "#404040", 'Debería ser: #404040');
+    t.is(palette.darken("#ffffff", "0%"), "#ffffff");
+    t.is(palette.darken("#ffffff", "50%"), "#ffffff");
+    t.is(palette.darken("#ffffff", "100%"), "#ffffff");
 
-// //     t.end();
-// // })
+    t.is(palette.darken("#ffffff", "25%"), "#ffffff");
+    t.is(palette.darken("#ffffff", "75%"), "#ffffff");
+});

@@ -1,5 +1,6 @@
 const {convertToDec, convertToHex} = require('./main/convert.js');
 const {isHex, isPercentage} = require('./main/validate.js');
+const {add, subtract} = require('./main/brightness.js');
 
 module.exports = class DaleColor {
   half = 128;
@@ -250,6 +251,24 @@ module.exports = class DaleColor {
           var bo = g;
           return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
       }
+    }
+    return false;
+  }
+
+  /* Brightness */
+  darken(color, percentage){
+    if(isHex(color) == true && isPercentage(percentage) == true){
+        var p = percentage.substring(0, percentage.length - 1);
+
+        var r = convertToDec(color.substring(1,3));
+        var g = convertToDec(color.substring(3,5));
+        var b = convertToDec(color.substring(5,7));
+        // porcentaje por color
+        var rp = Math.round((p * (255 - r)) / 100);
+        var gp = Math.round((p * (255 - g)) / 100)
+        var bp = Math.round((p * (255 - b)) / 100)
+
+        return '#' + convertToHex(add(r, rp)) + convertToHex(add(g, gp)) + convertToHex(add(b, bp));
     }
     return false;
   }
