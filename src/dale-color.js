@@ -245,7 +245,7 @@ module.exports = class DaleColor {
           return '#' + convertToHex(ro) + convertToHex(go) + convertToHex(bo);
       }
       /* Terciarios - Verde Der */
-      else if((g > r && g > b) && (b < r)){
+      else if((g > r && g > b) && (b < r)) {
           var ro = r;
           var go = b;
           var bo = g;
@@ -256,19 +256,36 @@ module.exports = class DaleColor {
   }
 
   /* Brightness */
-  darken(color, percentage){
-    if(isHex(color) == true && isPercentage(percentage) == true){
-        var p = percentage.substring(0, percentage.length - 1);
+  darken(color, percentage) {
+    if(isHex(color) == true && isPercentage(percentage) == true) {
+      var p = percentage.substring(0, percentage.length - 1);
 
-        var r = convertToDec(color.substring(1,3));
-        var g = convertToDec(color.substring(3,5));
-        var b = convertToDec(color.substring(5,7));
-        // porcentaje por color
-        var rp = Math.round((p * (255 - r)) / 100);
-        var gp = Math.round((p * (255 - g)) / 100)
-        var bp = Math.round((p * (255 - b)) / 100)
+      var r = convertToDec(color.substring(1,3));
+      var g = convertToDec(color.substring(3,5));
+      var b = convertToDec(color.substring(5,7));
+      // porcentaje por color
+      var rp = Math.round((p * (255 - r)) / 100);
+      var gp = Math.round((p * (255 - g)) / 100);
+      var bp = Math.round((p * (255 - b)) / 100);
 
-        return '#' + convertToHex(add(r, rp)) + convertToHex(add(g, gp)) + convertToHex(add(b, bp));
+      return '#' + convertToHex(add(r, rp)) + convertToHex(add(g, gp)) + convertToHex(add(b, bp));
+    }
+    return false;
+  }
+
+  brighten(color, percentage) {
+    if(isHex(color) == true && isPercentage(percentage) == true) {
+      var p = percentage.substring(0, percentage.length - 1);
+      
+      var r = convertToDec(color.substring(1,3));
+      var g = convertToDec(color.substring(3,5));
+      var b = convertToDec(color.substring(5,7));
+      // porcentaje por color
+      var rp = Math.round((p * r) / 100);
+      var gp = Math.round((p * g) / 100);
+      var bp = Math.round((p * b) / 100);
+      
+      return '#' + convertToHex(subtract(r, rp)) + convertToHex(subtract(g, gp)) + convertToHex(subtract(b, bp));
     }
     return false;
   }

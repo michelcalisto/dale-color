@@ -154,8 +154,7 @@ tests("Tests: Harmonies Opposite",t => {
     t.is(palette.opposite("#80ff64"), "#8064ff");
 });
 
-
-tests("Tests: Brightness",t => {
+tests("Tests: Brightness Darken",t => {
     t.is(palette.darken("#000000", 0), false);
     t.is(palette.darken("#000000", "0%"), "#000000");
     t.is(palette.darken("#000000", "50%"), "#808080");
@@ -170,4 +169,21 @@ tests("Tests: Brightness",t => {
 
     t.is(palette.darken("#ffffff", "25%"), "#ffffff");
     t.is(palette.darken("#ffffff", "75%"), "#ffffff");
+});
+
+tests("Tests: Brightness Brighten",t => {
+    t.is(palette.brighten("#ffffff", 0), false);
+    t.is(palette.brighten("#ffffff", "0%"), "#ffffff");
+    t.is(palette.brighten("#ffffff", "50%"), "#7f7f7f");
+    t.is(palette.brighten("#ffffff", "100%"), "#000000");
+
+    t.is(palette.brighten("#66ff66", "25%"), "#4cbf4c");
+    t.is(palette.brighten("#66ff66", "75%"), "#194019");
+
+    t.is(palette.brighten("#000000", "0%"), "#000000");
+    t.is(palette.brighten("#000000", "50%"), "#000000");
+    t.is(palette.brighten("#000000", "100%"), "#000000");
+
+    t.is(palette.brighten("#000000", "25%"), "#000000");
+    t.is(palette.brighten("#000000", "75%"), "#000000");
 });
