@@ -1,14 +1,16 @@
 const tests = require('ava');
 const DaleColor = require('../src/dale-color.js');
-const palette = new DaleColor();
+const palette = new DaleColor(128);
 
-tests("Tests: Validates",t => {
+tests("Tests: Validate Hex",t => {
     t.is(palette.isHex("#64F800"), true);
     t.is(palette.isHex("#64C800F"), false);
     t.is(palette.isHex("#64C80"), false);
     t.is(palette.isHex("164C800"), false);
     t.is(palette.isHex("#64CX00"), false);
+});
 
+tests("Tests: Validate Percentage",t => {
     t.is(palette.isPercentage("0%"), true);
     t.is(palette.isPercentage(100), false);
     t.is(palette.isPercentage(-1), false);
@@ -19,71 +21,59 @@ tests("Tests: Validates",t => {
     t.is(palette.isPercentage("101%"), false);
     t.is(palette.isPercentage("-1%"), false);
     t.is(palette.isPercentage("101"), false);
-
-    t.is(palette.isDark("#808080"), true);
-    t.is(palette.isLight("#808080"), false);
-
-    
-    // /*
-    // * Negro y Blanco
-    // */
-    // t.is(daleColor.isDark("#000000", 128), true);
-    // t.is(daleColor.isDark("#ffffff", 128), false);
-    // t.is(daleColor.isDark("#999999", 128), false);
-    // t.is(daleColor.isDark("#6e6e6e", 128), true);
-
-    // /*
-    // * Primarios
-    // */
-    // t.same(daleColor.validaciones.isOscuro("#ff0000", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#960000", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#00ff00", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#009600", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#0000ff", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#000096", 200), true, 'Debería ser: true');
-
-    // /*
-    // * Secundarios
-    // */
-    // t.same(daleColor.validaciones.isOscuro("#ffff00", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#969600", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#ff00ff", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#960096", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#00ffff", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#009696", 200), true, 'Debería ser: true');
-
-    // /*
-    // * Tersarios
-    // */
-    // t.same(daleColor.validaciones.isOscuro("#ff8000", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#96503c", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#ff0080", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#963c50", 200), true, 'Debería ser: true');
-
-    // t.same(daleColor.validaciones.isOscuro("#8000ff", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#503c96", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#0080ff", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#3c5096", 200), true, 'Debería ser: true');
-
-    // t.same(daleColor.validaciones.isOscuro("#00ff80", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#3c9650", 200), true, 'Debería ser: true');
-    // t.same(daleColor.validaciones.isOscuro("#80ff00", 200), false, 'Debería ser: false');
-    // t.same(daleColor.validaciones.isOscuro("#50963c", 200), true, 'Debería ser: true');
-
 });
 
-// tests('Test de validaciones:', (t) => {
-//     t.same(daleColor.isHex("#64C800"), true, 'Debería ser: true');
-//     t.same(daleColor.isHex("#64C800F"), false, 'Debería ser: false');
-//     t.same(daleColor.isHex("#64C80"), false, 'Debería ser: false');
-//     t.same(daleColor.isHex("164C800"), false, 'Debería ser: false');
-//     t.same(daleColor.isHex("#64CX00"), false, 'Debería ser: false');
+tests("Tests: Validate Dark",t => {
+    /* Negro y Blanco */
+    t.is(palette.isDark("#000000"), true);
+    t.is(palette.isDark("#ffffff"), false);
+    t.is(palette.isDark("#999999"), false);
+    t.is(palette.isDark("#6e6e6e"), true);
+    t.is(palette.isDark("#808080"), true);
 
-//     t.same(daleColor.isPercentage(0), true, 'Debería ser: true');
-//     t.same(daleColor.isPercentage(100), true, 'Debería ser: true');
-//     t.same(daleColor.isPercentage(-1), false, 'Debería ser: false');
-//     t.same(daleColor.isPercentage(101), false, 'Debería ser: false');
-//     t.same(daleColor.isPercentage("sol"), false, 'Debería ser: false');
+    /* Primarios */
+    t.is(palette.isDark("#ff0000"), false);
+    t.is(palette.isDark("#960000"), false);
+    t.is(palette.isDark("#00ff00"), false);
+    t.is(palette.isDark("#009600"), false);
+    t.is(palette.isDark("#0000ff"), false);
+    t.is(palette.isDark("#000096"), false);
+    t.is(palette.isDark("#000080"), true);
+
+    /* Secundarios */
+    t.is(palette.isDark("#ffff00"), false);
+    t.is(palette.isDark("#969600"), false);
+    t.is(palette.isDark("#ff00ff"), false);
+    t.is(palette.isDark("#960096"), false);
+    t.is(palette.isDark("#00ffff"), false);
+    t.is(palette.isDark("#009696"), false);
+    t.is(palette.isDark("#008080"), true);
+
+    /* Tersarios */
+    t.is(palette.isDark("#ff8000"), false);
+    t.is(palette.isDark("#96503c"), false);
+    t.is(palette.isDark("#ff0080"), false);
+    t.is(palette.isDark("#963c50"), false);
+    t.is(palette.isDark("#803c50"), true);
+
+    t.is(palette.isDark("#8000ff"), false);
+    t.is(palette.isDark("#503c96"), false);
+    t.is(palette.isDark("#0080ff"), false);
+    t.is(palette.isDark("#3c5096"), false);
+    t.is(palette.isDark("#3c5080"), true);
+
+    t.is(palette.isDark("#00ff80"), false);
+    t.is(palette.isDark("#3c9650"), false);
+    t.is(palette.isDark("#80ff00"), false);
+    t.is(palette.isDark("#50963c"), false);
+    t.is(palette.isDark("#50803c"), true);
+});
+
+tests("Tests: Validate Light",t => {
+    t.is(palette.isLight("#808080"), false);
+
+
+});
 
 // //     /*
 // //     * Negro y Blanco
