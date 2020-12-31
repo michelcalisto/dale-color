@@ -1,6 +1,6 @@
 # Dale Color
 
-Libreria javascript para la alteración del color.
+Libreria javascript para modificar y generar combinaciones de colores.
 
 ![Node](https://img.shields.io/badge/NodeJS-v12.20.0-blue)
 ![NPM](https://img.shields.io/badge/NPM-v6.14.8-blue)
