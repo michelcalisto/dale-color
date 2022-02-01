@@ -7,7 +7,7 @@ Libreria javascript para modificar y generar combinaciones de colores.
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 <p align="left">
-  <a href="https://www.npmjs.com/package/dale-color" target="_blank"><img src="https://gist.githubusercontent.com/calistomichel/df14b3f9d80448fd7cc8d513a1824db7/raw/3588999ef0db4bb5584083b3e3897b06d1dbca80/npm-badge.svg" alt="npm" height="60"></a>
+  <a href="https://www.npmjs.com/package/dale-color" target="_blank"><img src="https://gist.githubusercontent.com/michelcalisto/df14b3f9d80448fd7cc8d513a1824db7/raw/3588999ef0db4bb5584083b3e3897b06d1dbca80/npm-badge.svg" alt="npm" height="60"></a>
 </p>
 
 ## Uso
@@ -17,10 +17,10 @@ const DaleColor = require('dale-color');
 const palette = new DaleColor();
 ```
 
-- [Validaciones](https://gist.github.com/calistomichel/a2d06c58a741744c33bc740ace3b237f)
-- [Brillo](https://gist.github.com/calistomichel/22bdade84b3cfe177705e706660e7f6c)
-- [Armonías](https://gist.github.com/calistomichel/ed122ba501877bd7759023d9ee34c560)
+- [Validaciones](https://gist.github.com/michelcalisto/a2d06c58a741744c33bc740ace3b237f)
+- [Brillo](https://gist.github.com/michelcalisto/22bdade84b3cfe177705e706660e7f6c)
+- [Armonías](https://gist.github.com/michelcalisto/ed122ba501877bd7759023d9ee34c560)
 
 ---
 
-[Licencia MIT](https://github.com/calistomichel/dale-color/blob/master/LICENSE.md)
+[Licencia MIT](https://github.com/michelcalisto/dale-color/blob/master/LICENSE.md)
