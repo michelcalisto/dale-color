@@ -1,6 +1,6 @@
 {
   "name": "dale-color",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Libreria javascript para la alteración del color.",
   "main": "src/dale-color.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "dale color",
     "dale-color"
   ],
-  "author": "Calisto Michel <calisto.michel@gmail.com>",
+  "author": "Michel Calisto <calisto.michel@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/michelcalisto/dale-color/issues"
