@@ -17,9 +17,31 @@ const DaleColor = require('dale-color');
 const palette = new DaleColor();
 ```
 
-- [Validaciones](https://gist.github.com/michelcalisto/a2d06c58a741744c33bc740ace3b237f)
-- [Brillo](https://gist.github.com/michelcalisto/22bdade84b3cfe177705e706660e7f6c)
-- [Armonías](https://gist.github.com/michelcalisto/ed122ba501877bd7759023d9ee34c560)
+## Validaciones
+
+```js
+// Color claro (devuelve true, si el color es mayor al número pasado en el constructor, por defecto "128")
+palette.isLight("#ff9999")
+
+// Color oscuro (devuelve true, si el color es menor ó igual al número pasado en el constructor, por defecto "128")
+palette.isDark("#000000")
+```
+
+## Brillo
+
+```js
+// Aclarar color
+palette.brighten("#ffffff", "50%");
+
+// Oscurecer color
+palette.darken("#66ff66", "25%");
+```
+## Armonías
+
+```js
+// Color Opuesto
+palette.opposite("#000000");
+```
 
 ---
 
